@@ -102,6 +102,7 @@ function Secondpage() {
            Staked
            <button onClick={approve}>Approve</button>
          </p>
+         
       
 <br></br>
 <br></br>
