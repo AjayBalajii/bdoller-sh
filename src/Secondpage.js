@@ -35,8 +35,13 @@ function Secondpage() {
       const approve = async (event) =>{
         event.preventDefault();
         const accounts = await  web3.eth.getAccounts();
-        setapprove(await share.methods.approve("0x409e9135Ab9005abaAEcC6C03E300809848a41E4","999999999900000000000000000000000000000").send(from:accounts[0]));
+        setapprove(await share.methods.approve("0x409e9135Ab9005abaAEcC6C03E300809848a41E4","999999999900000000000000000000000000000").
+        send({
+          from: accounts[0]
+         
+        }));
       }
+      
       const onSubmitNFT = async (event) => {
     
     
