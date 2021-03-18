@@ -98,10 +98,7 @@ function Secondpage() {
          <p>
            Locked value<br />{locked}
          </p>
-         <p>
-           Staked
-           <button onClick={approve}>Approve</button>
-         </p>
+        
       
 <br></br>
 <br></br>
