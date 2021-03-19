@@ -50,18 +50,23 @@ function Thirdpage() {
       
 <center>
 <br></br>
-<h1>Third Page</h1>
+<h1>Share</h1>
 
 		<form onSubmit={onSubmitNFT} id="create-course-form" >
 
-
-
-
-</form>
-
-
-
-      
+</form><br />
+<p><b><h1>Pancake PRABH/BUSD</h1></b></p> 
+<p>Deposit CAKE-LP PRABH/BUSD<br />
+Earn eBNBshare</p>
+<br />
+<button
+                class="btn btn-info btn-block"
+                type="button"
+                onClick={() => {
+                  history.push("/Fourthpage");
+                }}>
+                Deposit
+              </button>
 <br></br>
 <br></br>
 <button
@@ -94,14 +99,7 @@ function Thirdpage() {
               </button>
               
 
-              <button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Fourthpage");
-                }}>
-                Fourthpage
-              </button>
+             
               <button
                 class="btn btn-info btn-block"
                 type="button"

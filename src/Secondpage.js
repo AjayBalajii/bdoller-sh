@@ -6,6 +6,7 @@ import web3 from './web3';
 import lottery from './storeabicon';//this line import lottery folder
 
 import { Router, Route, Switch } from "react-router-dom";
+import Popup from 'reactjs-popup';
 
 import Treasury from './Treasury';
 import Firstpage from "./Firstpage";
@@ -14,6 +15,7 @@ import Fourthpage from "./Fourthpage";
 import Fifthpage from "./Fifthpage";
 import bdooracle from "./bdooracle";
 import boardroom from "./Boardroom";
+import Homepage from "./Moa";
 import bdo from "./bdo";
 import share from "./share";
 
@@ -30,6 +32,16 @@ function Secondpage() {
   var [staked,setstaked] = useState("");
   var [locked,setlock] = useState("");
   var [app,setapprove] = useState("");
+  var [stake,setstake] = useState("");
+  var [amount,setamount]= useState("");
+  const [tid,setId] = useState("");
+  const [tid1,setId1] = useState("");
+  const [Seigniorage,setSeigniorage] = useState("");
+  var [withdraw,setwithdraw] = useState("");
+  var [bal,setbal] = useState("");
+  var [claim,setclaim] = useState("");
+  var[ear,setear] = useState("");
+  
 
 
       const approve = async (event) =>{
@@ -40,6 +52,39 @@ function Secondpage() {
           from: accounts[0]
          
         }));
+      }
+      const Staked = async (event) =>{
+        event.preventDefault();
+        const accounts = await  web3.eth.getAccounts();
+        var te=tid;
+        alert(te)
+        setstake(await boardroom.methods.stake(te).
+        send({
+          from: accounts[0]
+         
+        }));
+        setSeigniorage(await boardroom.methods.allocateSeigniorage(te).send({ from:accounts[0]}));
+        
+      }
+      const Withdraw = async (event) =>{
+        event.preventDefault();
+        const accounts = await  web3.eth.getAccounts();
+        var te1=tid1;
+        alert(te1)
+        setwithdraw(await boardroom.methods.withdraw(te1).
+        send({
+          from: accounts[0]
+         
+        }));
+      }
+      const Claim = async (event) =>{
+        event.preventDefault();
+        const accounts = await web3.eth.getAccounts();
+        setclaim(await boardroom.methods.claimReward().send({
+          from: accounts[0]
+         
+        }));
+        alert("Rewards claimed");
       }
       
       const onSubmitNFT = async (event) => {
@@ -55,7 +100,9 @@ function Secondpage() {
       setepoch(await bdooracle.methods.getCurrentEpoch().call());
       setstaked(await boardroom.methods.totalSupply().call());
     setnextseigniorage(await Treasury.methods.nextEpochPoint().call()); 
-    setlock(await bdo.methods.balanceOf("0xF277De5B326C3538c81e73cE9a6f7232eAEE4439").call());    
+    setlock(await bdo.methods.balanceOf("0xF277De5B326C3538c81e73cE9a6f7232eAEE4439").call()); 
+    setbal(await boardroom.methods.balanceOf(accounts[0]).call());  
+    setear(await boardroom.methods.earned(accounts[0]).call()); 
      alert("completed");    
 
    
@@ -99,15 +146,43 @@ function Secondpage() {
            Locked value<br />{locked}
          </p>
          <p>
-           Staked
+         <b> First we need to approve then only we are able to call stake and Withdraw</b> <br />
            <button onClick={approve}>Approve</button>
-         </p>
+         </p> <br />
+         <Popup trigger={<button> Stake</button>} position="right center"><br />
+    <div>Stake your coin !!</div>
+   
+   <input type = "number" name="tid" required onChange={event => setId( event.target.value)} />
+
+    <button  onClick={Staked}>Stake</button>
+  </Popup><br />
+  <b>Your staked amount<br /> {bal}</b>
+  <br />
+ 
+  <Popup trigger={<button> Withdraw</button>} position="right center">
+    <div>withdraw your staked coin !!</div>
+   
+   <input type = "number" name="tid1" required onChange={event => setId1( event.target.value)} />
+
+    <button  onClick={Withdraw}>Withdraw</button>
+  </Popup>
+  <br />
+  <br />
+  <b>Your Earned amount=>{ear}</b><br />
+  <button  onClick={Claim}>ClaimRewards</button>
          
       
 <br></br>
 <br></br>
 
-
+<button
+                class="btn btn-info btn-block"
+                type="button"
+                onClick={() => {
+                  history.push("/Moa");
+                }}>
+                Homepage
+              </button>
 <button
                 class="btn btn-info btn-block"
                 type="button"
@@ -162,6 +237,9 @@ function Secondpage() {
             <Route path="/" exact>
               <div class="display-4 mb-1">Choose a route to go to</div>
               
+            </Route>
+            <Route path="/Moa">
+              <Homepage />
             </Route>
             <Route path="/Firstpage">
               <Firstpage />

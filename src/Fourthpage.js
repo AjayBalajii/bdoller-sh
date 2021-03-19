@@ -12,53 +12,114 @@ import Thirdpage from "./Thirdpage";
 
 import Firstpage from "./Firstpage";
 import Fifthpage from "./Fifthpage";
+import share from "./sharerewardpool";
+import lp from "./pancakeLP";
 
 
 function Fourthpage() {
 
   
   const [geta,setgeta] = useState("");
+  var[sid,setsId] = useState("");
+  var[bal,setbal] = useState("");
+  var [app,setapprove] = useState("");
+  var [tid1,setId1] = useState("");
+  var[withd,setwithdraw] = useState("");
+  var [withd1,setwithdraw1] = useState("");
 
   
       const onSubmitNFT = async (event) => {
     
-    
-      //var te=tid;
   
       event.preventDefault();
     
       const accounts = await  web3.eth.getAccounts();
-            
+      setbal(await lp.methods.balanceOf(accounts[0]).call());            
      alert("completed");    
-
-    //var getaaa=new web3.eth.Contract(abi,poda);
-    
-    //await geta.methods.tokenURI(te).send({
-    //from: accounts[0]
-    //value: this.setState({c:accounts[0]})
-    
-    //});
-
-
-      //var printgeta=await getaaa.methods.tokenURI(te).call();
-
-      
+   
   };
+  const Staked = async (event) =>{
+    event.preventDefault();
+    const accounts = await  web3.eth.getAccounts();
+    var te=sid;
+    alert(te)
+    
+    setsId(await share.methods.deposit("0",te).
+    send({
+      from: accounts[0]
+     
+    }));
+  }
+  const Withdraw = async (event) =>{
+    event.preventDefault();
+    const accounts = await  web3.eth.getAccounts();
+    var te1=tid1;
+    alert(te1)
+    setwithdraw(await share.methods.withdraw("0",te1).
+    send({
+      from: accounts[0]
+     
+    }));
+  }
+  const settle = async (event) =>{
+    event.preventDefault();
+    const accounts = await  web3.eth.getAccounts();
+
+    setwithdraw1(await share.methods.emergencyWithdraw("0").
+    send({
+      from: accounts[0]
+     
+    }));
+  }
+const accept = async (event) =>{
+      event.preventDefault();
+      const accounts = await  web3.eth.getAccounts();
+      setapprove(await lp.methods.approve("0xEB50a80F7DE37AF8669b0C4973B2A33E8502c5a7","999999999900000000000000000000000000000").
+      send({
+        from: accounts[0]
+       
+      }));
+      alert("approved");
+    
+    
+    
+  }
     
   return (
     <div className="App">
       
 <center>
 <br></br>
-<h1>Fourth Page</h1>
+<h1>Pancake PRABH/BUSD</h1>
 
 		<form onSubmit={onSubmitNFT} id="create-course-form" >
-
-
-
-
+    <button
+                class="btn btn-info btn-block"
+                type="submit">
+                
+                Submit
+              </button>
 </form>
+<p>Deposit Cake-LP PRABH/BUSD and earn eBNBshare</p>
 
+<b> First we need to approve then only we are able to call stake and Withdraw</b> <br /><br />
+           <button onClick={accept}>Approve</button>
+          <br /><br />
+<div>Deposit LpToken !!</div><br />
+   
+   <input type = "number" name="sid" required onChange={event => setsId( event.target.value)} /><br />
+
+    <button  onClick={Staked}>Stake</button><br /><br />
+    <b>Your Deposit amount<br /> {bal}</b><br />.
+
+    <div>withdraw your LpToken !!</div> <br />
+   
+   <input type = "number" name="tid1" required onChange={event => setId1( event.target.value)} />
+   <br />
+
+    <button  onClick={Withdraw}>Withdraw</button><br /> <br />
+    <div>Settle and withdraw your LpToken !!</div>
+    <button  onClick={settle}>Settle & Withdraw</button>
 
 
       
