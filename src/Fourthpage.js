@@ -32,7 +32,6 @@ function Fourthpage() {
     
   
       event.preventDefault();
-    
       const accounts = await  web3.eth.getAccounts();
       setbal(await lp.methods.balanceOf(accounts[0]).call());            
      alert("completed");    
