@@ -47,105 +47,11 @@ function Fifthpage() {
   return (
     <div className="App">
       
-<center>
+
 <br></br>
 <h1>Fifthpage</h1>
 
-		<form onSubmit={onSubmitNFT} id="create-course-form" >
-
-
-
-
-</form>
-
-
-
-      
-<br></br>
-<br></br>
-
-
-<button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Moa");
-                }}
-              >
-                Home Page
-              </button>
-<button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Firstpage");
-                }}
-              >
-                First Page
-              </button>
-
-<button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Secondpage");
-                }}>
-                Second page
-              </button>
-              <button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Thirdpage");
-                }}
-              >
-                Third page
-              </button>
-              
-              <button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Fourthpage");
-                }}
-              >
-                Fourth page
-              </button>
-
-
-              <br></br>
-<br></br>
-
-              
-</center>
-
-<br></br>
-<br></br>
-                    
-                    
-
-            <Router history={history}>
-          <Switch>
-            <Route path="/" exact>
-              <div class="display-4 mb-1">Choose a route to go to</div>
-              
-            </Route>
-            <Route path="/Firstpage">
-              <Firstpage />
-            
-            <Route path="/Secondpage">
-              <Secondpage />
-            </Route>
-            <Route path="/Thirdpage">
-              <Thirdpage />
-              <Route path="/Fouthpage">
-              <Fourthpage />
-            </Route>
-            </Route>
-            </Route>
-          </Switch>
-        </Router>
-
+		
 	  
       </div>      
   );

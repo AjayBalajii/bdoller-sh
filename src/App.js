@@ -1,8 +1,12 @@
-import logo from './logo.svg';
+import logo from './s.svg';
 import './App.css';
+import web3 from './web3';
 import React from "react";
-import { Router, Route, Switch } from "react-router-dom";
+import {BrowserRouter as Router , Route , Link , Switch , NavLink} from "react-router-dom";
 import history from "./utils/history";
+import { Button } from 'react-bootstrap';
+import { Navbar ,Nav,Form} from 'react-bootstrap';
+
 
 import Firstpage from "./Firstpage";
 import Secondpage from "./Secondpage";
@@ -13,115 +17,56 @@ import Fifthpage from "./Fifthpage";
 import Home from "./Moa";
 
 function App() {
+
+  
+  const accounts =  web3.eth.getAccounts();
+
+
   return (
-    <div class="container h-100 d-flex justify-content-center">
-      <div class="jumbotron my-auto">
+    <div>
+             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+   integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"/>
 
-        <center>
-
-          <br></br>
-          <br></br>
-          <br></br>
-        <Router history={history}>
-          <Switch>
-            <Route path="/" exact>
-              <div class="display-4 mb-1">Choose a route to go to page</div>
-              <br></br><br></br><br></br>
-              
-              <button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Firstpage");
-                }}
-              >
-                Firstpage 
-              </button>
-
-
-
-
-              <button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Secondpage");
-                }}
-              >
-                Secondpage
-              </button>
-
-              <button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Thirdpage");
-                }}
-              >
-                Thirdpage
-              </button>
-
-              <button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Fourthpage");
-                }}
-              >
-                Fourthpage
-              </button>
-
-
-              <button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Fifthpage");
-                }}
-              >
-                Fifthpage
-              </button>
-
-              <br></br>
-
-              <button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Moa");
-                }}
-              >
-                Home Page
-              </button>
-
-
-
-            </Route>
-            
-            <Route path="/Firstpage">
-              <Firstpage />
-            </Route>
-            <Route path="/Secondpage">
-              <Secondpage />
-            </Route>
-            <Route path="/Thirdpage">
-              <Thirdpage />
-            </Route>
-            <Route path="/Fourthpage">
-              <Fourthpage />
-            </Route>
-            <Route path="/Fifthpage">
-              <Fifthpage />
-              </Route>
-              <Route path="/Moa">
-              <Home />
-              </Route>
-            
-          </Switch>
-        </Router>
-        </center>
-      </div>
+        <div>
+          <Router>
+        <Navbar className="bgnav">
+          <Navbar.Brand href="">
       
+        <img src={logo} width="100px" height="30px"/>
+        <Link exact to="/Moa" class="navlink"> Home<span class="navlink">|</span></Link>
+        <Link exact to="/Secondpage" class="navlink"> BoardRoom<span class="navlink">|</span></Link>
+        <Link exact to="/Thirdpage" class="navlink">Share<span class="navlink">|</span></Link>
+        <Link exact to="/FourthPage" class="navlink"> Deposit<span class="navlink">|</span></Link>
+
+      
+    </Navbar.Brand>
+    <Navbar.Collapse className="justify-content-end">
+
+
+      <button class="btn btn1"> Metamask Connected</button>
+         
+
+
+      </Navbar.Collapse>
+      </Navbar>
+        
+    
+  
+          <Switch>
+    <Route exact path='/Moa' component={Home}/>
+      <Route  exact path='/Firstpage' component={Firstpage}/>
+      <Route  exact path='/Secondpage' component={Secondpage}/>
+      <Route  exact path='/Thirdpage' component={Thirdpage}/>
+      <Route  exact path='/Fourthpage' component={Fourthpage}/>
+      <Route  exact path='/Fifthpage' component={Fifthpage}/>
+
+    </Switch>
+    
+  </Router>
+    
+</div>
+
+    
     </div>
   );
 }

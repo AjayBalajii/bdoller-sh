@@ -1,5 +1,6 @@
 import React from "react";
 import history from "./utils/history";
+import BDO from "./BDO.png"
 
 import {useState} from 'react';
 import web3 from './web3';
@@ -89,92 +90,75 @@ const accept = async (event) =>{
       
 <center>
 <br></br>
-<h1>Pancake PRABH/BUSD</h1>
+<br/>
+<h2>Pancake <span class="cl">PRABH/BUSD</span></h2>
+
+
+<br/>
+<p>Deposit Cake-LP PRABH/BUSD and earn eBNBshare</p>
 
 		<form onSubmit={onSubmitNFT} id="create-course-form" >
     <button
-                class="btn btn-info btn-block"
+                class="btn btn-outline-warning"
                 type="submit">
                 
-                Submit
+                <img src={BDO} width="30px" height="30px"/>
+
               </button>
 </form>
-<p>Deposit Cake-LP PRABH/BUSD and earn eBNBshare</p>
-
-<b> First we need to approve then only we are able to call stake and Withdraw</b> <br /><br />
-           <button onClick={accept}>Approve</button>
+<br/><br/>
+<b> First we need to approve then only we are able to <span class="cl">call stake and Withdraw</span> </b> <br /><br />
+           <button class="btn btn-outline-warning" onClick={accept}>Approve</button>
           <br /><br />
-<div>Deposit LpToken !!</div><br />
+<br/>
+          <div class="row">
+            <div class="col-5 ml-5">
+              <div class="ll1">
+              <div>Deposit LpToken !!</div><br />
    
-   <input type = "number" name="sid" required onChange={event => setsId( event.target.value)} /><br />
+   <input type = "number" name="sid" required onChange={event => setsId( event.target.value)} /><br/>
+   <br/>
 
-    <button  onClick={Staked}>Stake</button><br /><br />
-    <b>Your Deposit amount<br /> {bal}</b><br />.
+    <button class="approve" onClick={Staked}>Stake</button><br /><br />
+              </div>
+            </div>
+            <div class="col-5 ml-5">
+              <div class="ll1">
+              <b>Your Deposit amount<br /> {bal}</b><br />.
 
-    <div>withdraw your LpToken !!</div> <br />
+              </div>
+            </div>
+          </div>
+<br/>
+          <div class="row">
+            <div class="col-5 ml-5">
+              <div class="ll1">
+              <div>withdraw your LpToken !!</div> <br />
    
    <input type = "number" name="tid1" required onChange={event => setId1( event.target.value)} />
    <br />
+   <br/>
 
-    <button  onClick={Withdraw}>Withdraw</button><br /> <br />
-    <div>Settle and withdraw your LpToken !!</div>
-    <button  onClick={settle}>Settle & Withdraw</button>
+    <button class="approve" onClick={Withdraw}>Withdraw</button><br /> <br />
+              </div>
+            </div>
+            <div class="col-5 ml-5">
+              <div class="ll1">
+              <div>Settle and withdraw your LpToken !!</div><br></br>
+    <button class="approve" onClick={settle}>Settle & Withdraw</button>
+              </div>
+            </div>
+          </div>
+            
+           
+    
+   
+    
 
 
       
 <br></br>
 <br></br>
-<button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Moa");
-                }}
-              >
-                Home Page
-              </button>
-<button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Firstpage");
-                }}
-              >
-                First Page
-              </button>
-
-<button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Secondpage");
-                }}>
-                Secondpage
-              </button>
-              <button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Thirdpage");
-                }}
-              >
-                Third page
-              </button>
-              
-              <button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Fifthpage");
-                }}
-              >
-                Fifthpage
-              </button>
-
-
-              <br></br>
-<br></br>
-
 
 
               
@@ -185,27 +169,7 @@ const accept = async (event) =>{
                     
                     
 
-            <Router history={history}>
-          <Switch>
-            <Route path="/" exact>
-              <div class="display-4 mb-1">Choose a route to go to</div>
-              
-            </Route>
-            <Route path="/Secondpage">
-              <Secondpage />
-            </Route>
-            <Route path="/Thirdpage">
-              <Thirdpage />
-              <Route path="/Firstpage">
-              <Firstpage />
-            </Route>
-            <Route path="/Fifthpage">
-              <Fifthpage />
-            </Route>
-            </Route>
-          </Switch>
-        </Router>
-
+            
 	  
       </div>      
   );

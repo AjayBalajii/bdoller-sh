@@ -1,16 +1,18 @@
 import React from "react";
 import history from "./utils/history";
-
+import download from "./download.png";
+import BDO from "./BDO.png";
 import {useState} from 'react';
 import web3 from './web3';
 import lottery from './storeabicon';//this line import lottery folder
 
-import { Router, Route, Switch } from "react-router-dom";
+import { Router, Route, Switch, Link } from "react-router-dom";
 import Homepage from "./Moa";
 import Secondpage from "./Secondpage";
 import Firstpage from "./Firstpage";
 import Fourthpage from "./Fourthpage";
 import Fifthpage from "./Fifthpage";
+import { Card } from "react-bootstrap";
 
 
 
@@ -50,106 +52,48 @@ function Thirdpage() {
       
 <center>
 <br></br>
-<h1>Share</h1>
-
-		<form onSubmit={onSubmitNFT} id="create-course-form" >
+<br/><br/>
+<h2>Earn <span class="cl">bDollar</span> Shares by providing liquidity
+</h2>
+<br/>
+<div class="card2" style={{borderColor:"yellow"}}>
+<form onSubmit={onSubmitNFT} id="create-course-form" >
 
 </form><br />
-<p><b><h1>Pancake PRABH/BUSD</h1></b></p> 
+<div class="row ml-5">
+<div class="col-1 ml-5">
+<img src={BDO} width="60px" height="60px" margin-right="-20px"/>
+
+</div>
+<div class="col-1 ml-n5">
+<img src={download} width="60px" height="60px"/>
+
+  </div>
+
+  </div><br/>
+<p><b><h4>Pancake PRABH/BUSD</h4></b></p> 
 <p>Deposit CAKE-LP PRABH/BUSD<br />
 Earn eBNBshare</p>
 <br />
-<button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Fourthpage");
-                }}>
+<Link exact to="/Fourthpage">
+<button class="btn btn-outline-warning">
                 Deposit
               </button>
+</Link>
+
+</div>
+
+
 <br></br>
 <br></br>
-<button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Moa");
-                }}
-              >
-                Home Page
-              </button>
-<button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Firstpage");
-                }}
-              >
-                Firstpage
-              </button>
-
-
-<button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Secondpage");
-                }}>
-                Secondpage
-              </button>
-              
-
-             
-              <button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Fifthpage");
-                }}
-              >
-                Fifthpage
-              </button>
-
-
-
-
-
-              <br></br>
-<br></br>
-
 
               
 </center>
 
-<br></br>
-<br></br>
-                    
-                    
-
-            <Router history={history}>
-          <Switch>
-            <Route path="/" exact>
-              <div class="display-4 mb-1">Choose a route to go to</div>
-              
-            </Route>
-            <Route path="/Firstpage">
-              <Firstpage />
-            </Route>
-
-            <Route path="/Secondpage">
-              <Secondpage />
-            </Route>
-            
-            
-            <Route path="/Fourthpage">
-              <Fourthpage />
-            </Route>
-            <Route path="/Fifthpage">
-              <Fifthpage />
-            </Route>
-          </Switch>
-        </Router>
-
+<br/>
+<br/>
+<br/>
+<br/>
 	  
       </div>      
   );

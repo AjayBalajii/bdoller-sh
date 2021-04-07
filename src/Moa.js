@@ -1,6 +1,6 @@
 import React from "react";
 import history from "./utils/history";
-
+import BDO from "./BDO.png"
 import {useState} from 'react';
 //import { Link } from 'react-router'
 import web3 from './web3';
@@ -15,6 +15,8 @@ import Fourthpage from "./Fourthpage";
 import Fifthpage from "./Fifthpage";
 
 import Treasury from './Treasury';
+import { Card } from "react-bootstrap";
+import bdo from "./bdo";
 
 function Moa(){
   
@@ -24,11 +26,10 @@ function Moa(){
   const [tokensymbol,settokensymbol]= useState("");
   var [price,setprice] = useState("");
 
+  
  
 
-  const buy = async(event) =>{
-    alert("hello");
-  }
+  
   const onSubmitNFT = async (event) => {
 
 
@@ -65,31 +66,33 @@ return (
       
 <center>
 <br></br>
-<h1>Home Page</h1>
-
-<div>
-
-	<form onSubmit={onSubmitNFT} id="create-course-form" >
+<br/>
 
 
+<h1 class="homehead"><span class="cl">bDollar (BDO)</span> is an algorithmic stablecoin running <br/>on Binance Smart-chain.</h1>
 
+<br/>
+
+<div class="card">
+<Card className="card" style={{backgroundColor: "#00152e" , borderColor:"yellow"}}>
+<form onSubmit={onSubmitNFT} id="create-course-form" >
+
+
+<br/>
   
     <button
-                class="btn btn-info btn-block"
+                class="btn btn-outline-warning"
                 type="submit">
                 
-                Submit
+                <img src={BDO} width="30px" height="30px"/>
               </button>
 
 
 
-
 </form>
+<br/>
 
-</div>
-
-
-<h2>Bdollar Contract</h2>
+<h4><span class="cl"> bdollar </span>Contract</h4>
         <p>
             {tokenname}({tokensymbol})
         </p>
@@ -106,105 +109,21 @@ return (
         
         
        
-<Link to="https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x190b589cf9fb8ddeabbfeae36a813ffb2a702454">BuyeBNBmon</Link>
+<Link className="cl" to="https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x190b589cf9fb8ddeabbfeae36a813ffb2a702454">BuyeBNBmon</Link>
 
-        <hr />
+     
 
-
-
-
-
-
-
-
-
-      
-<br></br>
-<br></br>
-
-
-<button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Firstpage");
-                }}>
-                Firstpage
-              </button>
-              <button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Secondpage");
-                }}>
-                Secondpage
-              </button>
-              <button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Thirdpage");
-                }}
-              >
-                Third page
-              </button>
-              <button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Fourthpage");
-                }}
-              >
-                Fourth page
-              </button>
-              <button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Fifthpage");
-                }}
-              >
-                Fifthpage
-              </button>
-
-
-              <br></br>
-<br></br>
-
-
+</Card >
+</div>
               
 </center>
+<br/>
+<br/>
 
-<br></br>
-<br></br>
-                    
-                    
 
-            <Router history={history}>
-          <Switch>
-            <Route path="/" exact>
-              <div class="display-4 mb-1">Choose a route to go to</div>
-              
-            </Route>
-            <Route path="/Firstpage">
-              <Firstpage />
-            </Route>
-            <Route path="/Secondpage">
-              <Secondpage />
-            </Route>
-            <Route path="/Thirdpage">
-              <Thirdpage />
-              <Route path="/Fourthpage">
-              <Fourthpage />
-            </Route>
-            <Route path="/Fifthpage">
-              <Fifthpage />
-            </Route>
-            </Route>
-          </Switch>
-        </Router>
 
-	  
+
+        
       </div>      
   );
 }

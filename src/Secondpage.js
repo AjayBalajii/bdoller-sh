@@ -1,5 +1,6 @@
 import React from "react";
 import history from "./utils/history";
+import BDO from "./BDO.png"
 
 import {useState} from 'react';
 import web3 from './web3';
@@ -115,149 +116,100 @@ function Secondpage() {
       
 <center>
 <br></br>
-<h1>BoardRoom </h1>
+<h2 class="cl">Stake your Seigniorage Share
+</h2><br/>
+<h4 class="sp">
+Deposit bDollar Shares and earn inflationary rewards<br/>
+using revolutionary Multi-Pegs Mechanism
+
+  </h4>
+  <br></br>
 
 		<form onSubmit={onSubmitNFT} id="create-course-form" >
 
     <button
-                class="btn btn-info btn-block"
+                class="btn btn-outline-warning"
                 type="submit">
                 
-                Submit
+                <img src={BDO} width="30px" height="30px"/>
+
               </button>
 
 
 </form>
+<br/>
 
-<p>
-          epoch<br/> {getCurrentEpoch}
-         </p>
+<div class="card1">
+  <div class="row">
+  <div class="col">
+    <label class="epoch">Epoch :<span>{getCurrentEpoch}</span></label>
+  </div>
+  </div>
+  <br/>
+
+  <div class="row">
+    <div class="col">
+      <label class="ll">nextEpochPoint<span><br/>{nextseigniorage}</span></label>
+    </div>
+    <div class="col">
+      <label class="ll">eBNBmom Price(TWAP)<span><br/>{twap}</span></label>
+    </div>
+  </div><br/>
+  <br/>
+  <div class="row">
+    <div class="col">
+      <label class="ll"> SeBNBmom Staked<span><br/>{staked}</span></label>
+    </div>
+    <div class="col">
+      <label class="ll">Locked value<span><br/>{locked}</span></label>
+    </div>
+  </div>
+</div>
+<br/>
 
          <p>
-         nextEpochPoint<br/> {nextseigniorage}
-         </p>
-         <p>
-         eBNBmom Price(TWAP)<br/> {twap}
-         </p>
-         <p>
-           SeBNBmom Staked<br/> {staked}
-         </p>
-         <p>
-           Locked value<br />{locked}
-         </p>
-         <p>
-         <b> First we need to approve then only we are able to call stake and Withdraw</b> <br />
-           <button onClick={approve}>Approve</button>
+         <b> First we need to approve then only we are able to <span class="cl">call stake and Withdraw</span></b> <br /><br/>
+           <button onClick={approve} class=" approve">Approve</button>
          </p> <br />
-         <Popup trigger={<button> Stake</button>} position="right center"><br />
-    <div>Stake your coin !!</div>
+        <div class="row">
+          <div class="col-5">
+          <Popup trigger={<button class="btn btn-outline-warning"> Stake</button>} position="right center"><br />
+    <div class="pop">Stake your coin !!</div>
    
-   <input type = "number" name="tid" required onChange={event => setId( event.target.value)} />
-
-    <button  onClick={Staked}>Stake</button>
+   <input type = "number" class="poptext" name="tid" required onChange={event => setId( event.target.value)} />
+<br/><br/>
+    <button class="approve" onClick={Staked}>Stake</button>
   </Popup><br />
-  <b>Your staked amount<br /> {bal}</b>
-  <br />
- 
-  <Popup trigger={<button> Withdraw</button>} position="right center">
-    <div>withdraw your staked coin !!</div>
-   
-   <input type = "number" name="tid1" required onChange={event => setId1( event.target.value)} />
+  
 
-    <button  onClick={Withdraw}>Withdraw</button>
+          </div>
+          <div class="col-2">
+          <b>Your staked amount<br /> {bal}</b>
+          </div>
+          <div class="col-4">
+          <Popup trigger={<button class="btn btn-outline-warning"> Withdraw</button>} position="right center">
+    <div class="pop">withdraw your staked coin !!</div>
+   
+   <input type = "number" name="tid1" class="poptext" required onChange={event => setId1( event.target.value)} />
+<br/><br/>
+    <button class="approve"  onClick={Withdraw}>Withdraw</button>
   </Popup>
-  <br />
-  <br />
-  <b>Your Earned amount=>{ear}</b><br />
-  <button  onClick={Claim}>ClaimRewards</button>
+
+          </div>
+        </div>
+<br></br>
+<br/>
+  <b>Your Earned amount=>{ear}</b><br /><br/>
+  <button  class="approve" onClick={Claim}>ClaimRewards</button>
          
       
 <br></br>
 <br></br>
-
-<button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Moa");
-                }}>
-                Homepage
-              </button>
-<button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Firstpage");
-                }}>
-                Firstpage
-              </button>
-              <button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Thirdpage");
-                }}
-              >
-                Third page
-              </button>
-              <button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Fourthpage");
-                }}
-              >
-                Fourth page
-              </button>
-              <button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Fifthpage");
-                }}
-              >
-                Fifthpage
-              </button>
-
-
-              <br></br>
-<br></br>
-
-
-              
 </center>
 
 <br></br>
 <br></br>
-                    
-                    
-
-            <Router history={history}>
-          <Switch>
-            <Route path="/" exact>
-              <div class="display-4 mb-1">Choose a route to go to</div>
-              
-            </Route>
-            <Route path="/Moa">
-              <Homepage />
-            </Route>
-            <Route path="/Firstpage">
-              <Firstpage />
-            </Route>
-            <Route path="/Thirdpage">
-              <Thirdpage />
-              <Route path="/Fourthpage">
-              <Fourthpage />
-            </Route>
-            <Route path="/Fifthpage">
-              <Fifthpage />
-            </Route>
-            </Route>
-          </Switch>
-        </Router>
-
-	  
-      </div>      
+ </div>      
   );
 }
 
