@@ -2,7 +2,7 @@ import React from "react";
 import history from "./utils/history";
 import BDO from "./BDO.png"
 
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
 import web3 from './web3';
 import lottery from './storeabicon';//this line import lottery folder
 
@@ -220,12 +220,8 @@ function Secondpage() {
         alert("Rewards claimed");
       }
       
-      const onSubmitNFT = async (event) => {
-    
-    
-      //var te=tid;
-  
-      event.preventDefault();
+      useEffect(()=>{bal2()},[])
+  const bal2 = async () => {
     
       const accounts = await  web3.eth.getAccounts();
       settwap(await bdooracle.methods.twap("0x8352A0a849cD181Cc7Ef61F972b7B8E5d677b66D","1000000000000000000").call());   
@@ -253,17 +249,9 @@ function Secondpage() {
 
   <br></br>
 
-		<form onSubmit={onSubmitNFT} id="create-course-form" >
+		<form onSubmit={bal2} id="create-course-form" >
 
-    <button
-                class="btn btn-primary"
-                type="submit">
-                
-                <img src={BDO} width="30px" height="30px"/>
-
-              </button>
-
-
+   
 </form>
 <br/>
 

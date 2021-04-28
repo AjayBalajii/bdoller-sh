@@ -32,7 +32,6 @@ function App() {
         <Navbar className="bgnav">
           <Navbar.Brand href="">
       
-        <img src={logo} width="100px" height="30px"/>
         <Link exact to="/Moa" class="navlink"> Home</Link>
         <Link exact to="/Secondpage" class="navlink"> BoardRoom</Link>
         <Link exact to="/Thirdpage" class="navlink">Share</Link>

@@ -1,7 +1,7 @@
 import React from "react";
 import history from "./utils/history";
 import BDO from "./BDO.png"
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
 //import { Link } from 'react-router'
 import web3 from './web3';
 import './App.css';
@@ -27,14 +27,13 @@ function Moa(){
   var [price,setprice] = useState("");
 
   
- 
+  useEffect(()=>{bal()},[])
+ const bal = async () => {
 
   
-  const onSubmitNFT = async (event) => {
+  
 
-
-
-    event.preventDefault();
+   // event.preventDefault();
   
     const accounts = await  web3.eth.getAccounts();
 
@@ -72,20 +71,12 @@ return (
 <h1 class="homehead"><span class="cl">bDollar (BDO)</span> is an algorithmic stablecoin running <br/>on Binance Smart-chain.</h1>
 
 <br/>
+<div class="row">
+  <div class="col">
 
-<div class="card">
+  <div class="card">
 <Card className="card" style={{backgroundColor: "black",boxShadow:"1px 1px 10px 2px #fa3455" }}>
-<form onSubmit={onSubmitNFT} id="create-course-form" >
-
-
-<br/>
-  
-    <button
-                class="btn btn-primary"
-                type="submit">
-                
-                <img src={BDO} width="30px" height="30px"/>
-              </button>
+<form onSubmit={bal} id="create-course-form" >
 
 
 
@@ -115,6 +106,71 @@ return (
 
 </Card >
 </div>
+  </div>
+  <div class="col">
+
+  <div class="card">
+<Card className="card" style={{backgroundColor: "black",boxShadow:"1px 1px 10px 2px #fa3455" }}>
+
+<br/>
+
+<h4> bdollar Contract</h4>
+        <p>
+            {tokenname}({tokensymbol})
+        </p>
+        <p>
+          <b><h4> Total Supply</h4></b> {totalsupply}
+        </p>
+        <p>
+          <b><h4>Price</h4></b>{price}
+      </p>
+        <p>
+          <b><h4>BalanceOf</h4></b> {balance}
+         </p>
+
+        
+        
+       
+<Link className="primary" to="https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x190b589cf9fb8ddeabbfeae36a813ffb2a702454">BuyeBNBmon</Link>
+
+     
+
+</Card >
+</div>
+  </div>
+  <div class="col">
+
+  <div class="card">
+<Card className="card" style={{backgroundColor: "black",boxShadow:"1px 1px 10px 2px #fa3455" }}>
+
+<br/>
+
+<h4> bdollar Contract</h4>
+        <p>
+            {tokenname}({tokensymbol})
+        </p>
+        <p>
+          <b><h4> Total Supply</h4></b> {totalsupply}
+        </p>
+        <p>
+          <b><h4>Price</h4></b>{price}
+      </p>
+        <p>
+          <b><h4>BalanceOf</h4></b> {balance}
+         </p>
+
+        
+        
+       
+<Link className="primary" to="https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x190b589cf9fb8ddeabbfeae36a813ffb2a702454">BuyeBNBmon</Link>
+
+     
+
+</Card >
+</div>
+  </div>
+</div>
+
               
 </center>
 <br/>
