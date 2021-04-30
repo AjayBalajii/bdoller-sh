@@ -68,7 +68,7 @@ return (
 <br/>
 
 
-<h1 class="homehead">TREE</h1>
+<h1 class="homehead">Tree - stasis</h1>
 
 <br/>
 <div class="row">
@@ -83,7 +83,7 @@ return (
 </form>
 <br/>
 
-<h4> <b>eBNB</b></h4><br/>
+<h4> <b>eBNB - Tree</b></h4><br/>
         <p>
             {tokenname}({tokensymbol})
         </p>
@@ -100,7 +100,7 @@ return (
         
         
        
-<Link className="primary" to="https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x190b589cf9fb8ddeabbfeae36a813ffb2a702454">BuyeBNBmon</Link>
+<Link className="primary" to="https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x190b589cf9fb8ddeabbfeae36a813ffb2a702454">Buy eBNB</Link>
 
      
 
@@ -131,7 +131,7 @@ return (
         
         
        
-<Link className="primary" to="https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x190b589cf9fb8ddeabbfeae36a813ffb2a702454">BuyeBNBmon</Link>
+<Link className="primary" to="https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x190b589cf9fb8ddeabbfeae36a813ffb2a702454">Buy PAI</Link>
 
      
 
@@ -162,7 +162,7 @@ return (
         
         
        
-<Link className="primary" to="https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x190b589cf9fb8ddeabbfeae36a813ffb2a702454">BuyeBNBmon</Link>
+<Link className="primary" to="https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x190b589cf9fb8ddeabbfeae36a813ffb2a702454">Buy SAI</Link>
 
      
 
