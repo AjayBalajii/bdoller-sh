@@ -68,7 +68,7 @@ return (
 <br/>
 
 
-<h1 class="homehead"><span class="cl">bDollar (BDO)</span> is an algorithmic stablecoin running <br/>on Binance Smart-chain.</h1>
+<h1 class="homehead">TREE</h1>
 
 <br/>
 <div class="row">
@@ -83,7 +83,7 @@ return (
 </form>
 <br/>
 
-<h4> bdollar Contract</h4>
+<h4> <b>eBNB</b></h4><br/>
         <p>
             {tokenname}({tokensymbol})
         </p>
@@ -114,7 +114,7 @@ return (
 
 <br/>
 
-<h4> bdollar Contract</h4>
+<h4> <b>PAI</b></h4><br/>
         <p>
             {tokenname}({tokensymbol})
         </p>
@@ -145,7 +145,7 @@ return (
 
 <br/>
 
-<h4> bdollar Contract</h4>
+<h4> <b>SAI</b></h4><br/>
         <p>
             {tokenname}({tokensymbol})
         </p>
