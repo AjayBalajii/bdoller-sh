@@ -272,7 +272,7 @@ const accept = async (event) =>{
             <div class="col">
               <div class="ll2">
                 <br/><br/>
-              <h4>Your Deposit amount<br /> {bal}</h4>
+              <h4>Your Deposit amount<br /> {bal/1000000000000000000}</h4>
 
 <br/><br/><br/>
               <h4>Settle and withdraw your LpToken !!</h4><br></br><br/>

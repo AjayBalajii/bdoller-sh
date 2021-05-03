@@ -110,7 +110,7 @@ function MyVerticallyCenteredModal2(props) {
     alert(te1);
     te1=te1*1000000;
     te1=te1+"000000000000";
-    
+
     setwithdraw(await boardroom.methods.withdraw(te1).
     send({
       from: accounts[0]
@@ -277,7 +277,7 @@ function Secondpage() {
       <label class="ll" width="100%">nextEpochPoint<span><br/>{nextseigniorage}</span></label>
     </div>
     <div class="col">
-      <label class="ll">eBNBmom Price(TWAP)<span><br/>{twap}</span></label>
+      <label class="ll">eBNBmom Price(TWAP)<span><br/>{twap/1000000000000000000}</span></label>
     </div>
   </div><br/>
   <br/>
