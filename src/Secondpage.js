@@ -47,6 +47,8 @@ function MyVerticallyCenteredModal1(props) {
     const accounts = await  web3.eth.getAccounts();
     var te=document.getElementById("tid").value;
     alert(te)
+    te=te*1000000;
+    te=te+"000000000000";
     setstake(await boardroom.methods.stake(te).
     send({
       from: accounts[0]
@@ -64,6 +66,8 @@ function MyVerticallyCenteredModal1(props) {
     
     <Modal
       {...props}
+      style={{width:"500px" , marginLeft:"400px"}}
+
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       id="mymodal"
@@ -104,6 +108,9 @@ function MyVerticallyCenteredModal2(props) {
     const accounts = await  web3.eth.getAccounts();
     var te1=document.getElementById("tid1").value;
     alert(te1);
+    te1=te1*1000000;
+    te1=te1+"000000000000";
+    
     setwithdraw(await boardroom.methods.withdraw(te1).
     send({
       from: accounts[0]
@@ -119,6 +126,8 @@ function MyVerticallyCenteredModal2(props) {
     
     <Modal
       {...props}
+      style={{width:"500px" , marginLeft:"400px"}}
+
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       id="mymodal1"
@@ -316,7 +325,7 @@ function Secondpage() {
           <div class="col ll2">
             <br/>
             <br/>
-          <b>Your Earned amount=>{ear}</b><br /><br/>
+          <b>Your Earned amount  :{ear}</b><br /><br/>
   <button  class="btn btn-primary" onClick={Claim}>ClaimRewards</button>
      <br/>
      <br/>
